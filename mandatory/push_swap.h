@@ -6,7 +6,7 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:47:39 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/22 23:11:44 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/23 18:32:53 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,9 @@ t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
 int		ft_atoi(const char *str);
 int		ft_isdigit(int c);
+char	**ft_split(char const *s);
+void	*ft_memcpy(void *dest, const void *src, size_t num);
+int		iswhitespace(int c);
 
 void	sa(t_list **stack_a);
 void	sb(t_list **stack_b);
@@ -47,5 +50,13 @@ void	rr(t_list **stack_a, t_list **stack_b);
 void	rra(t_list **stack_a);
 void	rrb(t_list **stack_b);
 void	rrr(t_list **stack_a, t_list **stack_b);
+
+void	sorttwo(t_list **stack);
+void	sortthree(t_list **stack);
+void	sortfour(t_list **stack_a, t_list **stack_b);
+void	sortfive(t_list **stack_a, t_list **stack_b);
+
+int		find_min(t_list *stack);
+void	whatsidetomove(t_list **stack, int index);
 
 # endif

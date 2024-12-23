@@ -6,7 +6,7 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:03:27 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/22 22:44:30 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/23 16:18:03 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,19 @@ static void	reverse_rotate(t_list **stack)
 
 void	rra(t_list **stack_a)
 {
+	write(1, "rra\n", 4);
 	reverse_rotate(stack_a);
 }
 
 void	rrb(t_list **stack_b)
 {
+	write(1, "rrb\n", 4);
 	reverse_rotate(stack_b);
 }
 
 void	rrr(t_list **stack_a, t_list **stack_b)
 {
+	write(1, "rrr\n", 4);
 	reverse_rotate(stack_a);
 	reverse_rotate(stack_b);
 }

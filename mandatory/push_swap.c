@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 20:44:31 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/22 23:32:41 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/23 18:34:19 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,30 @@ void free_stack(t_list **stack)
 		*stack = tmp;
 	}
 }
-// int notover(const char *str)
-// {
-// 	int		i;
-// 	long	res;
-// 	i = 0;
-// 	while (str[i])
-// }
+
+void free_splited(char **splited)
+{
+	int	i;
+
+	i = 0;
+	while (splited[i])
+	{
+		free(splited[i]);
+		i++;
+	}
+	free(splited);
+}
+
+void	ultimaterror(t_list **stack, char **splited)
+{
+	write(1, "Error\n", 6);
+	if (stack)
+		free_stack(stack);
+	if (splited)
+		free_splited(splited);
+	exit(EXIT_FAILURE);
+}
+
 int	validnum(const char *str)
 {
 	int		i;
@@ -52,19 +69,11 @@ int	validnum(const char *str)
 		return (0);
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		res = res * 10 + (str[i] - '0');
-		if (res > INT_MAX)
+		res = res * 10 + (str[i++] - '0');
+		if (flag * res > INT_MAX || flag * res < INT_MIN )
 			return (0);
-		if (res < INT_MIN)
-			return (0);
-		i++;
 	}
-	res *= flag;
-	if (str[i] != '\0')
-		return (0);
-	if (res > INT_MAX || res < INT_MIN)
-		return (0);
-	return(1);
+	return (str[i] == '\0');
 }
 
 int theresdupp(t_list *stack)
@@ -89,37 +98,35 @@ int theresdupp(t_list *stack)
 
 void	parsargs(int ac, char **av, t_list **stack_a)
 {
-	int i;
-	int	*num;
+	int		i;
+	int		j;
+	int		*num;
+	char	**splited;
 
 	i = 1;
 	while (i < ac)
 	{
-		num = malloc(sizeof(int));
-		if (!num)
+		splited = ft_split(av[i]);
+		if (!splited || !splited[0])
+			ultimaterror(stack_a, splited);
+		j = 0;
+		while (splited[j])
 		{
-			write(1, "Error\n", 6);
-			free_stack(stack_a);
-			exit(EXIT_FAILURE);
+			num = malloc(sizeof(int));
+			if (!num || !validnum(splited[j]))
+			{
+				free(num);
+				ultimaterror(stack_a, splited);
+			}
+			*num = ft_atoi(splited[j]);
+			ft_lstadd_back(stack_a, ft_lstnew(num));
+			j++;
 		}
-		*num = ft_atoi(av[i]);
-		if (!validnum(av[i]))
-		{
-			free(num);
-			write(1, "Error\n", 6);
-			free_stack(stack_a);
-			exit(EXIT_FAILURE);
-		}
-		ft_lstadd_back(stack_a, ft_lstnew(num));
+		free_splited(splited);
 		i++;
 	}
-	
 	if (theresdupp(*stack_a))
-	{
-		write (1, "Error\n", 6);
-		free_stack(stack_a);
-		exit(EXIT_FAILURE);
-	}
+		ultimaterror(stack_a, NULL);
 }
 
 int main(int ac, char **av)
@@ -132,19 +139,18 @@ int main(int ac, char **av)
 	if (ac < 2)
 		return(0);
 	parsargs(ac, av, &stack_a);
-	if(ac - 1 <= 5)
+	if (!stack_a)
+		return (0);
+	if(ft_lstsize(stack_a) <= 5)
 	{
-		if (ac - 1 == 2)
-			sa(&stack_a);
-		else if (ac - 1 == 3)
-			write(1, "three_sort", 10);
-			//sort_three(&stack_a, &stack_b);
-		else if (ac - 1 == 4)
-			write(1, "fourr_sort", 10);
-			//sort_four(&stack_a, &stack_b);
-		else if (ac - 1 == 5)
-			write(1, "fivee_sort", 10);
-			//sort_five(&stack_a, &stack_b);
+		if (ft_lstsize(stack_a) == 2)
+			sorttwo(&stack_a);
+		else if (ft_lstsize(stack_a) == 3)
+			sortthree(&stack_a);
+		else if (ft_lstsize(stack_a) == 4)
+			sortfour(&stack_a, &stack_b);
+		else if (ft_lstsize(stack_a) == 5)
+			sortfive(&stack_a, &stack_b);
 	}
 	else
 		write(1, "large_sort", 10);
