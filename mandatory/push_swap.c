@@ -6,7 +6,7 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 20:44:31 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/23 18:34:19 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/24 19:09:38 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,8 +153,12 @@ int main(int ac, char **av)
 			sortfive(&stack_a, &stack_b);
 	}
 	else
-		write(1, "large_sort", 10);
-		//large_sort(&stack_a, &stack_b);
+	{
+		// //if (ft_lstsize(stack_a) > 100)
+		// 	largerlarger(&stack_a, &stack_b);
+		// else
+			largesort(&stack_a, &stack_b);
+	}
 	free_stack(&stack_a);
 	return (0);
 }

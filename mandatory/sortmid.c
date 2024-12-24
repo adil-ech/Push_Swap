@@ -6,7 +6,7 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 17:58:21 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/23 18:42:31 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/24 15:31:25 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	find_min(t_list *stack)
 	}
 	return (index);
 }
+
 void	whatsidetomove(t_list **stack, int index)
 {
 	int	size;
