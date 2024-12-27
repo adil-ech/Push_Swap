@@ -6,7 +6,7 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:47:39 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/24 19:05:41 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/27 01:38:56 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@
 typedef struct s_list
 {
 	void			*content;
+	int				index;
 	struct s_list	*next;
 }					t_list;
 
@@ -57,6 +58,7 @@ void	sortfour(t_list **stack_a, t_list **stack_b);
 void	sortfive(t_list **stack_a, t_list **stack_b);
 void	largesort(t_list **stack_a, t_list **stack_b);
 void	largerlarger(t_list **stack_a, t_list **stack_b);
+void	backto_a(t_list **stack_a, t_list **stack_b);
 
 int		find_min(t_list *stack);
 void	whatsidetomove(t_list **stack, int index);

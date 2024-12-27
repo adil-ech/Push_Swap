@@ -5,83 +5,71 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/24 19:04:17 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/24 19:07:32 by adechaji         ###   ########.fr       */
+/*   Created: 2024/12/26 17:36:58 by adechaji          #+#    #+#             */
+/*   Updated: 2024/12/27 15:29:21 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	findmaxx(t_list *stack)
+void	chunking(t_list **stack_a, t_list **stack_b)
 {
-	int max;
-	t_list *tmp;
+	int	sizeA;
+	int	count;
+	int	pv1;
+	int	pv2;
 
-	if (!stack)
-		return -1;
-	max = *(int *)(stack->content);
-	tmp = stack->next;
-	while (tmp)
+	sizeA = ft_lstsize(*stack_a);
+	pv1 = sizeA / 3;
+	pv2 = pv1 / 2;
+	count = 0;
+	while (ft_lstsize(*stack_a) > 5)
 	{
-		if (*(int *)(tmp->content) > max)
-			max = *(int *)(tmp->content);
-		tmp = tmp->next;
-	}
-	return max;
-}
-
-void	push_to_bv(t_list **stack_a, t_list **stack_b, int min, int max)
-{
-	t_list *tmp;
-	int size = ft_lstsize(*stack_a);
-	int index;
-
-	while (size--)
-	{
-		tmp = *stack_a;
-		if (*(int *)(tmp->content) >= min && *(int *)(tmp->content) <= max)
+		if (*stack_b && (*stack_b)->index <= pv2 && ft_lstsize(*stack_b) > 1)
+			rb(stack_b);
+		if ((*stack_a)->index <= pv1)
 		{
 			pb(stack_a, stack_b);
+			count++;
 		}
 		else
+			ra(stack_a);
+		if (count>= pv1)
 		{
-			index = 0;
-			tmp = *stack_a;
-			while (tmp)
-			{
-				if (*(int *)(tmp->content) >= min && *(int *)(tmp->content) <= max)
-					break ;
-				tmp = tmp->next;
-				index++;
-			}
-			whatsidetomove(stack_a, index);
+			sizeA = ft_lstsize(*stack_a);
+			pv1 = sizeA / 3;
+			pv2 = pv1 / 2;
+			count = 0;
 		}
+	}
+}
+
+
+void	indexmepls(t_list **stack_a, t_list *node)
+{
+	t_list *curr;
+
+	curr = *stack_a;
+	node->index = 0;
+	while (curr)
+	{
+		if (*(int *)node->content > *(int *)curr->content)
+			node->index++;
+		curr = curr->next;
 	}
 }
 
 void	largerlarger(t_list **stack_a, t_list **stack_b)
 {
-	int chunk_size;
-	int chunks_num;
-	int i;
-	int min, max;
-	int size;
+	t_list *tmp;
 
-	size = ft_lstsize(*stack_a);
-	chunk_size = size / 10 + (size % 10 != 0);
-	chunks_num = (size + chunk_size - 1) / chunk_size;
-	i = 0;
-	while (i < chunks_num)
+	tmp = *stack_a;
+	while (tmp)
 	{
-		min = i * chunk_size;
-		max = min + chunk_size - 1;
-		push_to_bv(stack_a, stack_b, min, max);
-		i++;
+		indexmepls(stack_a, tmp);
+		tmp = tmp->next;
 	}
-	while (ft_lstsize(*stack_b) > 0)
-	{
-		int max_index = findmaxx(*stack_b);
-		whatsidetomove(stack_b, max_index);
-		pa(stack_a, stack_b);
-	}
+	chunking(stack_a, stack_b);
+	sortfive(stack_a, stack_b);
+	backto_a(stack_a, stack_b);
 }
