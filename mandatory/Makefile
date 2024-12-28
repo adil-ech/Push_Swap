@@ -6,7 +6,7 @@
 #    By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/12/22 22:39:53 by adechaji          #+#    #+#              #
-#    Updated: 2024/12/27 01:11:08 by adechaji         ###   ########.fr        #
+#    Updated: 2024/12/28 19:11:41 by adechaji         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CFLAGS 	= -Wall -Werror -Wextra
 NAME	= push_swap.a
 AR		= ar rcs
 SRC     = pushop.c revrotateop.c rotateop.c swapop.c \
-		sortstart.c sortmid.c giantsort.c backto_a.c\
+		sortstart.c sortmid.c giantsort.c helpmepls.c \
         minilibft/ft_lstnew_bonus.c minilibft/ft_lstadd_front_bonus.c minilibft/ft_lstsize_bonus.c \
 		minilibft/ft_lstlast_bonus.c minilibft/ft_lstadd_back_bonus.c \
         minilibft/ft_lstdelone_bonus.c minilibft/ft_lstclear_bonus.c minilibft/ft_lstiter_bonus.c \

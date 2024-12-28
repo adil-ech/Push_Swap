@@ -6,7 +6,7 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 20:44:31 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/27 01:52:40 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/28 19:12:12 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ int main(int ac, char **av)
 		else if (ft_lstsize(stack_a) == 5)
 			sortfive(&stack_a, &stack_b);
 	}
-	else
+	else 
 		largerlarger(&stack_a, &stack_b);
 	free_stack(&stack_a);
 	return (0);

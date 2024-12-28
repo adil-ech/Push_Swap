@@ -6,7 +6,7 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:47:39 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/27 01:38:56 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/28 19:08:20 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <stdio.h>
 # include <limits.h>
+# include <stdbool.h>
 
 typedef struct s_list
 {
@@ -56,11 +57,12 @@ void	sorttwo(t_list **stack);
 void	sortthree(t_list **stack);
 void	sortfour(t_list **stack_a, t_list **stack_b);
 void	sortfive(t_list **stack_a, t_list **stack_b);
-void	largesort(t_list **stack_a, t_list **stack_b);
 void	largerlarger(t_list **stack_a, t_list **stack_b);
-void	backto_a(t_list **stack_a, t_list **stack_b);
 
 int		find_min(t_list *stack);
 void	whatsidetomove(t_list **stack, int index);
+int		positions(t_list **stack, int	index);
+int		checkifsorted(t_list **stack_a);
+void	indexmepls(t_list **stack);
 
 # endif
