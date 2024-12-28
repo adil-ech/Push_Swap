@@ -6,7 +6,7 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:47:39 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/28 19:08:20 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/28 23:35:12 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,6 @@ void	whatsidetomove(t_list **stack, int index);
 int		positions(t_list **stack, int	index);
 int		checkifsorted(t_list **stack_a);
 void	indexmepls(t_list **stack);
+int		isitsortedalr(t_list *stack_a);
 
 # endif

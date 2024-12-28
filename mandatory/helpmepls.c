@@ -6,11 +6,24 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 01:07:47 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/28 19:07:26 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/28 23:34:20 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int isitsortedalr(t_list *stack_a)
+{
+    if (!stack_a || !stack_a->next)
+        return (1);
+    while (stack_a->next)
+    {
+        if (stack_a->index > stack_a->next->index)
+            return (0);
+        stack_a = stack_a->next;
+    }
+    return (1);
+}
 
 int	checkifsorted(t_list **stack_a)
 {
