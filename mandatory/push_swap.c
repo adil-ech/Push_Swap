@@ -6,7 +6,7 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 20:44:31 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/28 23:39:59 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/29 00:38:40 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,12 @@ int main(int ac, char **av)
 	parsargs(ac, av, &stack_a);
 	if (!stack_a)
 		return (0);
+	indexmepls(&stack_a);
+	if (isitsortedalr(&stack_a) == 1)
+	{
+    	free_stack(&stack_a);
+   		return 0;
+	}
 	if(ft_lstsize(stack_a) <= 5)
 	{
 		if (ft_lstsize(stack_a) == 2)

@@ -6,21 +6,24 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 01:07:47 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/28 23:34:20 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/29 00:20:45 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int isitsortedalr(t_list *stack_a)
+int isitsortedalr(t_list **stack_a)
 {
-    if (!stack_a || !stack_a->next)
+	t_list	*tmp;
+
+	tmp = *stack_a;
+    if (!tmp || !tmp->next)
         return (1);
-    while (stack_a->next)
+    while (tmp->next)
     {
-        if (stack_a->index > stack_a->next->index)
+        if (tmp->index > tmp->next->index)
             return (0);
-        stack_a = stack_a->next;
+        tmp = tmp->next;
     }
     return (1);
 }

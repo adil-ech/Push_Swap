@@ -6,7 +6,7 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/26 17:36:58 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/28 22:52:18 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/29 00:36:55 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void largerlarger(t_list **stack_a, t_list **stack_b)
     int j;
 
     size = ft_lstsize(*stack_a) - 1;
-    indexmepls(stack_a);
     if (size < 101)
         j = 15;
     else if (size + 1 > 100)
