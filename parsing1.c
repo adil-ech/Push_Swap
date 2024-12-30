@@ -6,47 +6,11 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 18:16:28 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/29 18:18:05 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/30 18:22:33 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void free_stack(t_list **stack)
-{
-	t_list *tmp;
-	
-	while (*stack)
-	{
-		tmp = (*stack)->next;
-		free((*stack)->content);
-		free(*stack);
-		*stack = tmp;
-	}
-}
-
-void free_splited(char **splited)
-{
-	int	i;
-
-	i = 0;
-	while (splited[i])
-	{
-		free(splited[i]);
-		i++;
-	}
-	free(splited);
-}
-
-void	ultimaterror(t_list **stack, char **splited)
-{
-	write(2, "Error\n", 6);
-	if (stack)
-		free_stack(stack);
-	if (splited)
-		free_splited(splited);
-	exit(EXIT_FAILURE);
-}
 
 int	validnum(const char *str)
 {
@@ -70,37 +34,35 @@ int	validnum(const char *str)
 	while (str[i] >= '0' && str[i] <= '9')
 	{
 		res = res * 10 + (str[i++] - '0');
-		if (flag * res > INT_MAX || flag * res < INT_MIN )
+		if (flag * res > INT_MAX || flag * res < INT_MIN)
 			return (0);
 	}
 	return (str[i] == '\0');
 }
 
-int theresdupp(t_list *stack)
+void	normiesprocess(t_list **stack_a, char **splited)
 {
-	t_list *tmp;
-	t_list *pass;
+	int	*num;
+	int	j;
 
-	tmp = stack;
-	while (tmp)
+	j = 0;
+	while (splited[j])
 	{
-		pass = tmp->next;
-		while (pass)
+		num = malloc(sizeof(int));
+		if (!num || !validnum(splited[j]))
 		{
-			if (*(int *)(tmp->content) == *(int *)(pass->content))
-				return (1);
-			pass = pass->next;
+			free(num);
+			ultimaterror(stack_a, splited);
 		}
-		tmp = tmp->next;
+		*num = ft_atoi(splited[j]);
+		ft_lstadd_back(stack_a, ft_lstnew(num));
+		j++;
 	}
-	return (0);
 }
 
 void	parsargs(int ac, char **av, t_list **stack_a)
 {
 	int		i;
-	int		j;
-	int		*num;
 	char	**splited;
 
 	i = 1;
@@ -109,19 +71,7 @@ void	parsargs(int ac, char **av, t_list **stack_a)
 		splited = ft_split(av[i]);
 		if (!splited || !splited[0])
 			ultimaterror(stack_a, splited);
-		j = 0;
-		while (splited[j])
-		{
-			num = malloc(sizeof(int));
-			if (!num || !validnum(splited[j]))
-			{
-				free(num);
-				ultimaterror(stack_a, splited);
-			}
-			*num = ft_atoi(splited[j]);
-			ft_lstadd_back(stack_a, ft_lstnew(num));
-			j++;
-		}
+		normiesprocess(stack_a, splited);
 		free_splited(splited);
 		i++;
 	}

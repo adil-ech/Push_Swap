@@ -6,31 +6,31 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 01:07:47 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/29 02:13:39 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/30 18:12:21 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int isitsortedalr(t_list **stack_a)
+int	isitsortedalr(t_list **stack_a)
 {
 	t_list	*tmp;
 
 	tmp = *stack_a;
-    if (!tmp || !tmp->next)
-        return (1);
-    while (tmp->next)
-    {
-        if (tmp->index > tmp->next->index)
-            return (0);
-        tmp = tmp->next;
-    }
-    return (1);
+	if (!tmp || !tmp->next)
+		return (1);
+	while (tmp->next)
+	{
+		if (tmp->index > tmp->next->index)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }
 
 int	checkifsorted(t_list **stack_a)
 {
-	t_list *tmp;
+	t_list	*tmp;
 
 	tmp = *stack_a;
 	while (tmp->next)
@@ -42,9 +42,9 @@ int	checkifsorted(t_list **stack_a)
 	return (1);
 }
 
-int	positions(t_list **stack, int	index)
+int	positions(t_list **stack, int index)
 {
-	t_list *tmp;
+	t_list	*tmp;
 	int		i;
 
 	tmp = *stack;
@@ -57,7 +57,7 @@ int	positions(t_list **stack, int	index)
 	return (i);
 }
 
-void indexmepls(t_list **stack)
+void	indexmepls(t_list **stack)
 {
 	t_list	*curtmp1;
 	t_list	*tmp2;

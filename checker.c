@@ -6,13 +6,13 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 02:10:55 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/29 18:59:58 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/30 19:51:25 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	execEvtg(t_list **chst_a, t_list **chst_b, char *line)
+void	exec_evtg(t_list **chst_a, t_list **chst_b, char *line)
 {
 	if (ft_strncmp(line, "sa\n", 3) == 0)
 		sa(chst_a, 0);
@@ -38,15 +38,17 @@ void	execEvtg(t_list **chst_a, t_list **chst_b, char *line)
 		rrr(chst_a, chst_b, 0);
 }
 
-int	isValid(char *str)
+int	is_valid(char *str)
 {
-	static char *actions[] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb", "rrr", NULL};
+	static char	*actions[] = {"sa", "sb", "ss", "pa", "pb",
+		"ra", "rb", "rr", "rra", "rrb", "rrr", NULL};
 	int			i;
-	
+
 	i = 0;
 	while (actions[i])
 	{
-		if (ft_strncmp(str, actions[i], ft_strllen(actions[i])) == 0 && str[ft_strllen(actions[i])] == '\n')
+		if (ft_strncmp(str, actions[i], ft_strllen(actions[i])) == 0
+			&& str[ft_strllen(actions[i])] == '\n')
 			return (1);
 		i++;
 	}
@@ -57,9 +59,10 @@ void	checker(t_list **chst_a, t_list **chst_b)
 {
 	char	*line;
 
-	while ((line = get_next_line(0)) != NULL)
+	line = get_next_line(0);
+	while (line != NULL)
 	{
-		if(!isValid(line))
+		if (!is_valid(line))
 		{
 			free(line);
 			write(2, "Error\n", 6);
@@ -67,8 +70,9 @@ void	checker(t_list **chst_a, t_list **chst_b)
 			free_stack(chst_b);
 			exit(EXIT_FAILURE);
 		}
-		execEvtg(chst_a, chst_b, line);
+		exec_evtg(chst_a, chst_b, line);
 		free(line);
+		line = get_next_line(0);
 	}
 	if (checkifsorted(chst_a) && !*chst_b)
 		write(1, "OK\n", 3);

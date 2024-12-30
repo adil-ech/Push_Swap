@@ -6,16 +6,15 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 18:47:39 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/29 18:52:29 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/30 18:44:06 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# ifndef PUSH_SWAP_H
+#ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h>
 # include <limits.h>
 
 typedef struct s_list
@@ -62,13 +61,16 @@ void	largerlarger(t_list **stack_a, t_list **stack_b);
 
 int		find_min(t_list *stack);
 void	whatsidetomove(t_list **stack, int index);
-int		positions(t_list **stack, int	index);
+int		positions(t_list **stack, int index);
 int		checkifsorted(t_list **stack_a);
 void	indexmepls(t_list **stack);
 int		isitsortedalr(t_list **stack_a);
 void	parsargs(int ac, char **av, t_list **stack_a);
 void	free_stack(t_list **stack);
+void	free_splited(char **splited);
+void	ultimaterror(t_list **stack, char **splited);
+int		theresdupp(t_list *stack);
 
 char	*get_next_line(int fd);
 
-# endif
+#endif
