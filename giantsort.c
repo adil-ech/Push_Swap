@@ -6,7 +6,7 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/30 17:41:12 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/30 18:01:02 by adechaji         ###   ########.fr       */
+/*   Updated: 2024/12/31 01:38:46 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,30 +26,6 @@ void	isitsorted(t_list **stack_a, t_list **stack_b)
 			pa(stack_a, stack_b, 1);
 		else if (i > size / 2)
 			rrb(stack_b, 1);
-		else
-			rb(stack_b, 1);
-	}
-}
-
-void	topshandle(t_list **stack_a, t_list **stack_b, t_list **last, int qima)
-{
-	if (positions(stack_b, (*stack_a)->index - 1) > ft_lstsize(*stack_b) / 2)
-	{
-		if ((*last)->index < (*stack_b)->index || (*last)->index == qima)
-		{
-			pa(stack_a, stack_b, 1);
-			*last = ft_lstlast(*stack_a);
-		}
-		else
-			rrb(stack_b, 1);
-	}
-	else
-	{
-		if ((*last)->index < (*stack_b)->index || (*last)->index == qima)
-		{
-			pa(stack_a, stack_b, 1);
-			*last = ft_lstlast(*stack_a);
-		}
 		else
 			rb(stack_b, 1);
 	}
