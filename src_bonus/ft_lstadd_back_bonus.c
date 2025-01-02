@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_lstadd_back_bonus.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 20:04:11 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/29 18:23:53 by adechaji         ###   ########.fr       */
+/*   Created: 2024/10/31 11:14:55 by adechaji          #+#    #+#             */
+/*   Updated: 2025/01/02 01:02:00 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#include "../push_swap_bonus.h"
 
-# include <unistd.h>
-# include <stdlib.h>
+void	ft_lstadd_back(t_list **lst, t_list *new)
+{
+	t_list	*last;
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 1
-# endif
-
-char	*get_next_line(int fd);
-int		ft_strlen(char *s);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_substr(char *s);
-char	*ft_strdup(char *s1);
-
-#endif
+	if (!lst || !new)
+		return ;
+	if (!*lst)
+	{
+		*lst = new;
+	}
+	else
+	{
+		last = ft_lstlast(*lst);
+		last->next = new;
+	}
+}

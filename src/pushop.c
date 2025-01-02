@@ -6,11 +6,11 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 16:45:11 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/30 18:44:17 by adechaji         ###   ########.fr       */
+/*   Updated: 2025/01/02 01:38:16 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 static void	pushups(t_list **stack, t_list **topush)
 {

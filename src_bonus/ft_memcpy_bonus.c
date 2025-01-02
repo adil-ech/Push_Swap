@@ -1,22 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone_bonus.c                               :+:      :+:    :+:   */
+/*   ft_memcpy_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 11:29:36 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/22 21:17:25 by adechaji         ###   ########.fr       */
+/*   Created: 2024/11/06 19:10:57 by adechaji          #+#    #+#             */
+/*   Updated: 2025/01/02 01:01:49 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../push_swap_bonus.h"
 
-void	ft_lstdelone(t_list *lst, void (*del)(void *))
+void	*ft_memcpy(void *dest, const void *src, size_t num)
 {
-	if (lst && del)
+	size_t			i;
+	unsigned char	*dst_data;
+	unsigned char	*src_data;
+
+	if (!src && !dest)
+		return (NULL);
+	i = 0;
+	dst_data = (unsigned char *)dest;
+	src_data = (unsigned char *)src;
+	if (dst_data == src_data)
+		return (dst_data);
+	while (i < num)
 	{
-		del(lst->content);
-		free(lst);
+		dst_data[i] = src_data[i];
+		i++;
 	}
+	return (dst_data);
 }

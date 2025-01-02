@@ -6,11 +6,11 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 18:16:28 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/30 18:22:33 by adechaji         ###   ########.fr       */
+/*   Updated: 2025/01/02 01:38:25 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	validnum(const char *str)
 {

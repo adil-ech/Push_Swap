@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 19:46:29 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/22 21:50:22 by adechaji         ###   ########.fr       */
+/*   Created: 2024/10/30 22:11:00 by adechaji          #+#    #+#             */
+/*   Updated: 2025/01/02 01:01:52 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../push_swap_bonus.h"
 
-int	ft_isdigit(int c)
+int	ft_lstsize(t_list *lst)
 {
-	if (c >= 48 && c <= 57)
+	int	count;
+
+	count = 0;
+	while (lst)
 	{
-		return (1);
+		lst = lst->next;
+		count++;
 	}
-	return (0);
+	return (count);
 }

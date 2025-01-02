@@ -6,11 +6,11 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 17:58:21 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/30 18:38:18 by adechaji         ###   ########.fr       */
+/*   Updated: 2025/01/02 01:38:46 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 int	find_min(t_list *stack)
 {

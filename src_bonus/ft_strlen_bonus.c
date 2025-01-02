@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
+/*   ft_strlen_bonus.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 12:15:57 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/22 21:17:28 by adechaji         ###   ########.fr       */
+/*   Created: 2024/10/22 21:55:54 by adechaji          #+#    #+#             */
+/*   Updated: 2025/01/02 01:01:41 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../push_swap_bonus.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+size_t	ft_strllen(const char *s)
 {
-	if (!f)
-		return ;
-	while (lst)
+	size_t	i;
+
+	i = 0;
+	while (s[i])
 	{
-		f(lst->content);
-		lst = lst->next;
+		i++;
 	}
+	return (i);
 }

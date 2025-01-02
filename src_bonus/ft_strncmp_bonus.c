@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstclear_bonus.c                                :+:      :+:    :+:   */
+/*   ft_strncmp_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/31 11:38:24 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/22 21:17:22 by adechaji         ###   ########.fr       */
+/*   Created: 2024/10/25 13:32:55 by adechaji          #+#    #+#             */
+/*   Updated: 2025/01/02 01:01:39 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../push_swap.h"
+#include "../push_swap_bonus.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(void *))
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	t_list	*tmp;
+	int	i;
 
-	if (!lst || !del)
-		return ;
-	while (*lst)
+	i = 0;
+	if (n == 0)
+		return (0);
+	n--;
+	while ((unsigned char)s1[i] == (unsigned char)s2[i]
+		&& s1[i] && s2[i] && n > 0)
 	{
-		tmp = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = tmp;
+		n--;
+		i++;
 	}
-	*lst = NULL;
+	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 }

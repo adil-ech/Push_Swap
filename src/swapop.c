@@ -6,11 +6,11 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 15:21:55 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/29 18:57:11 by adechaji         ###   ########.fr       */
+/*   Updated: 2025/01/02 01:38:42 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	sa(t_list **stack_a, int f)
 {

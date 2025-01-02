@@ -6,11 +6,11 @@
 /*   By: adechaji <adechaji@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/23 17:18:31 by adechaji          #+#    #+#             */
-/*   Updated: 2024/12/29 18:56:57 by adechaji         ###   ########.fr       */
+/*   Updated: 2025/01/02 01:38:44 by adechaji         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 void	sorttwo(t_list **stack)
 {
