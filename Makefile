@@ -12,7 +12,7 @@
 
 NAME = push_swap
 BONUS_NAME = checker
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 SRCS = src/ft_atoi.c src/ft_lstadd_back.c src/ft_lstlast.c src/ft_lstnew.c src/ft_lstsize.c \
        src/ft_memcpy.c src/ft_split.c src/ft_splithelpers.c src/ft_strlen.c \
