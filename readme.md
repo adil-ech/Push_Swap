@@ -1,3 +1,6 @@
+![image](https://github.com/user-attachments/assets/bb6c7ebb-f0d5-4da5-8a79-af00f71d0d04)
+
+
 # 🌀 Push\_swap
 
 `push_swap` is an algorithmic sorting project from the 42 curriculum where the goal is to sort a stack of integers using the least number of operations and only a limited set of stack instructions. It involves deep algorithmic thinking, data structure manipulation, and optimization.
